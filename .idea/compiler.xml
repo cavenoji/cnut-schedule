@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cnut-schedule-proxy.main" target="11" />
+      <module name="cnut-schedule-proxy.test" target="11" />
+      <module name="cnut.schedule.proxy.api.main" target="11" />
+      <module name="cnut.schedule.proxy.api.test" target="11" />
+      <module name="cnut.schedule.proxy.cnut-schedule-proxy.main" target="11" />
+      <module name="cnut.schedule.proxy.cnut-schedule-proxy.test" target="11" />
+      <module name="cnut.schedule.proxy.core.main" target="1.8" />
+      <module name="cnut.schedule.proxy.core.test" target="1.8" />
+      <module name="core.cnut.schedule.proxy.core.main" target="11" />
+      <module name="core.cnut.schedule.proxy.core.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

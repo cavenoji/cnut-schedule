@@ -1,0 +1,15 @@
+version: '2'
+services:
+  cnutscheduleproxy-app:
+    image: cnutscheduleproxy
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - MICRONAUT_ENVIRONMENTS=prod
+      - JDBC_URL=jdbc:postgresql://cnutscheduleproxy-postgresql:5432/cnutscheduleproxy
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 8080:8080
+  cnutscheduleproxy-postgresql:
+    extends:
+      file: postgresql.yml
+      service: cnutscheduleproxy-postgresql

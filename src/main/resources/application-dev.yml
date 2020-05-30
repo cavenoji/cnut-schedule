@@ -1,0 +1,105 @@
+# ===================================================================
+# Micronaut configuration for the "dev" environment.
+#
+# This configuration overrides the application.yml file.
+#
+# Full Micronaut configuration reference is available at:
+# https://docs.micronaut.io/latest/guide/configurationreference.html
+#
+# More information on JHipster configuration properties:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+datasources:
+  default:
+    url: 'jdbc:h2:mem:cnutscheduleproxy;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE'
+    username: 'cnutscheduleproxy'
+    password: ''
+    driverClassName: 'org.h2.Driver'
+    poolName: Hikari
+    autoCommit: false
+
+liquibase:
+  datasources:
+    default:
+      async: true
+      change-log: classpath:config/liquibase/master.xml
+      contexts: dev,faker
+
+jpa:
+  default:
+    packages-to-scan: com.cnut.schedule.domain
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        show_sql: true
+        id:
+          new_generator_mappings: true
+        connection:
+          provider_disables_autocommit: true
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+        generate_statistics: false
+
+logging:
+  level:
+    ROOT: DEBUG
+    io.github.jhipster: DEBUG
+    com.cnut.schedule: DEBUG
+
+micronaut:
+  server:
+    port: 8080
+    cors:
+      # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
+      enabled: true
+      configurations:
+        default:
+          exposed-headers:
+            - Authorization
+            - Link
+            - X-Total-Count
+  security:
+    token:
+      jwt:
+        generator:
+          access-token-expiration: 86400
+        signatures:
+          secret:
+            generator:
+              secret: ODA2NjY4MjVkZDcxMTAxOTA1MTU4NDhjM2NmN2M0YTNiMjM3MGVmOTgzZmU3YTViODg0NDc4ODY2Y2MwMzBlMzc4ZmMxMmQ3NzhmODk5ZTAxYjNjYzRkM2VhMzFlNTY4ODY2ZDgxNzNkOTc0YTFlZmNhNGIxZmQ1NDA3MjU2ZGM=
+              base64: true
+              jws-algorithm: HS512
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+cnutschedule:
+  mail: # specific JHipster mail property, for standard properties see MailProperties
+    from: cnutscheduleproxy@localhost
+    base-url: http://127.0.0.1:8080
+  metrics:
+    logs: # Reports metrics in the logs
+      enabled: false
+      report-frequency: 60 # in seconds
+  logging:
+    use-json-format: false # By default, logs are not in Json format
+    logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the ApplicationProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# application:
