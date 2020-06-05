@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cnut-schedule-proxy.iml" filepath="$PROJECT_DIR$/.idea/modules/cnut-schedule-proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cnut.schedule.proxy.cnut-schedule-proxy.iml" filepath="$PROJECT_DIR$/.idea/modules/cnut.schedule.proxy.cnut-schedule-proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cnut.schedule.proxy.cnut-schedule-proxy.main.iml" filepath="$PROJECT_DIR$/.idea/modules/cnut.schedule.proxy.cnut-schedule-proxy.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cnut.schedule.proxy.cnut-schedule-proxy.test.iml" filepath="$PROJECT_DIR$/.idea/modules/cnut.schedule.proxy.cnut-schedule-proxy.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/cnut.schedule.proxy.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/cnut.schedule.proxy.core.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/cnut.schedule.proxy.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/core/cnut.schedule.proxy.core.test.iml" />
     </modules>

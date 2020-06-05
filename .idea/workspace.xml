@@ -2,8 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd17b2ef-d413-49b0-8601-aa4bea29991e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/micronaut-cli.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/filter/FacultyGroupsFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/filter/GroupClassesFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/BaseResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/EducForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/Faculty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/FacultyStudyGroups.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/ScheduleApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/StudyGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/StudyType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/filter/FiltersData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/service/AsDekanatRozkladApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/service/AsDekanatRozkladApiWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/service/ScheduleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/utils/StringUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/web/ScheduleResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/openapi.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/cnut-schedule-proxy.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -60,10 +91,48 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+            <state relative-caret-position="240">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-585" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cnut/schedule/domain/User.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -113,7 +182,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/BaseResponse.java" />
         <option value="$PROJECT_DIR$/src/main/resources/openapi.properties" />
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/StudyGroup.java" />
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/StudyType.java" />
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/FacultyStudyGroups.java" />
@@ -126,7 +194,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/ScheduleDataRow.java" />
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/web/HttpClientExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/domain/response/error/ApiError.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/web/error/HttpClientExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/service/AsDekanatRozkladApiWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/cnut/schedule/proxy/service/AsDekanatRozkladApi.java" />
@@ -149,6 +216,8 @@
         <option value="$PROJECT_DIR$/api/build.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/core/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -173,6 +242,11 @@
             <path>
               <item name="cnut-schedule-proxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="cnut-schedule-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cnut-schedule-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnut-schedule-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cnut-schedule-proxy" type="b2602c69:ProjectViewProjectNode" />
@@ -204,7 +278,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -384,32 +458,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
-      <module name="cnut-schedule-proxy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
-      <module name="cnut-schedule-proxy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="cnut-schedule-proxy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -443,18 +491,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="cnut-schedule-proxy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -529,7 +565,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38510000" />
+    <option name="totallyTimeSpent" value="38968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -589,34 +625,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/stream/Stream.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.10/9d22e03b9f0a300edff23ccf219d406d12c3378f/rxjava-2.2.10-sources.jar!/io/reactivex/functions/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-security/1.4.0/82cb4b1924395b40106ae946a5e0d088f8e2e6f/micronaut-security-1.4.0-sources.jar!/io/micronaut/security/authentication/AuthenticationProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-security/1.4.0/82cb4b1924395b40106ae946a5e0d088f8e2e6f/micronaut-security-1.4.0-sources.jar!/io/micronaut/security/authentication/HttpAuthenticationProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-validation/1.3.6/88a26b20f6db93b74d35543ccdf02e9de205272c/micronaut-validation-1.3.6-sources.jar!/io/micronaut/validation/validator/constraints/ConstraintValidator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -713,10 +721,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gradlew" />
     <entry file="file://$PROJECT_DIR$/gradlew.bat" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cnut/schedule/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-585" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        <state relative-caret-position="240">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
