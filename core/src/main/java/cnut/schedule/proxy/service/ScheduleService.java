@@ -28,7 +28,8 @@ import javax.inject.Singleton;
 public class ScheduleService {
 
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-  private static final String DEFAULT_START_DATE = DATE_FORMAT.format(LocalDate.now().minusYears(1L));
+  private static final String DEFAULT_START_DATE =
+      DATE_FORMAT.format(LocalDate.now().minusYears(1L));
   private static final String DEFAULT_END_DATE = DATE_FORMAT.format(LocalDate.now().plusYears(1L));
 
   private final AsDekanatRozkladApi asDekanatRozkladApi;
