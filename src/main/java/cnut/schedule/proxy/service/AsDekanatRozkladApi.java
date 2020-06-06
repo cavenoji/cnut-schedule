@@ -1,8 +1,8 @@
 package cnut.schedule.proxy.service;
 
 import cnut.schedule.proxy.domain.response.FacultyStudyGroups;
-import cnut.schedule.proxy.domain.response.filter.FiltersData;
 import cnut.schedule.proxy.domain.response.ScheduleApiResponse;
+import cnut.schedule.proxy.domain.response.filter.FiltersData;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.QueryValue;
 import io.micronaut.http.client.annotation.Client;
@@ -35,7 +35,8 @@ public interface AsDekanatRozkladApi {
   }
 
   @Get("GetScheduleDataX")
-  Maybe<ScheduleApiResponse> getScheduleDataX(@QueryValue("aVuzID") final String uniId,
+  Maybe<ScheduleApiResponse> getScheduleDataX(
+      @QueryValue("aVuzID") final String uniId,
       @QueryValue("aStudyGroupID") final String groupId,
       @QueryValue("aStartDate") final String startDate,
       @QueryValue("aEndData") final String endDate,

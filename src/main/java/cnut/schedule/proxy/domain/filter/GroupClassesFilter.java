@@ -4,10 +4,8 @@ import javax.validation.constraints.NotEmpty;
 
 public class GroupClassesFilter {
 
-  @NotEmpty
-  private String uniId;
-  @NotEmpty
-  private String groupId;
+  @NotEmpty private String uniId;
+  @NotEmpty private String groupId;
   private String startDate;
   private String endDate;
   private String studyTypeId;
@@ -54,12 +52,22 @@ public class GroupClassesFilter {
 
   @Override
   public String toString() {
-    return "GroupClassesFilter{" +
-        "uniId='" + uniId + '\'' +
-        ", groupId='" + groupId + '\'' +
-        ", startDate='" + startDate + '\'' +
-        ", endDate='" + endDate + '\'' +
-        ", studyTypeId='" + studyTypeId + '\'' +
-        '}';
+    return "GroupClassesFilter{"
+        + "uniId='"
+        + uniId
+        + '\''
+        + ", groupId='"
+        + groupId
+        + '\''
+        + ", startDate='"
+        + startDate
+        + '\''
+        + ", endDate='"
+        + endDate
+        + '\''
+        + ", studyTypeId='"
+        + studyTypeId
+        + '\''
+        + '}';
   }
 }

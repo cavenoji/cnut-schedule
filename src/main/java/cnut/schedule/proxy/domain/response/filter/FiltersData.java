@@ -11,8 +11,10 @@ public class FiltersData extends BaseResponse {
 
   @JsonProperty("faculties")
   private List<Faculty> faculties = null;
+
   @JsonProperty("educForms")
   private List<EducForm> educForms = null;
+
   @JsonProperty("courses")
   private List<Course> courses = null;
 
@@ -48,11 +50,16 @@ public class FiltersData extends BaseResponse {
 
   @Override
   public String toString() {
-    return "FiltersData{" +
-        "faculties=" + faculties +
-        ", educForms=" + educForms +
-        ", courses=" + courses +
-        ", type='" + type + '\'' +
-        '}';
+    return "FiltersData{"
+        + "faculties="
+        + faculties
+        + ", educForms="
+        + educForms
+        + ", courses="
+        + courses
+        + ", type='"
+        + type
+        + '\''
+        + '}';
   }
 }

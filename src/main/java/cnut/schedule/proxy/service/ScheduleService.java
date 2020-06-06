@@ -5,8 +5,8 @@ import cnut.schedule.proxy.domain.response.Course;
 import cnut.schedule.proxy.domain.response.EducForm;
 import cnut.schedule.proxy.domain.response.Faculty;
 import cnut.schedule.proxy.domain.response.FacultyStudyGroups;
-import cnut.schedule.proxy.domain.response.filter.FiltersData;
 import cnut.schedule.proxy.domain.response.ScheduleApiResponse;
+import cnut.schedule.proxy.domain.response.filter.FiltersData;
 import cnut.schedule.proxy.utils.StringUtils;
 import io.reactivex.Maybe;
 import java.util.List;
@@ -20,7 +20,8 @@ public class ScheduleService {
   private final AsDekanatRozkladApi asDekanatRozkladApi;
 
   @Inject
-  public ScheduleService(@Named("asDekanatRozkladApiWrapper") AsDekanatRozkladApiWrapper asDekanatRozkladApi) {
+  public ScheduleService(
+      @Named("asDekanatRozkladApiWrapper") AsDekanatRozkladApiWrapper asDekanatRozkladApi) {
     this.asDekanatRozkladApi = asDekanatRozkladApi;
   }
 
@@ -40,8 +41,8 @@ public class ScheduleService {
     return getFiltersData(uniId).map(FiltersData::getEducForms);
   }
 
-  public Maybe<FacultyStudyGroups> getFacultyStudyGroups(final String uniId,
-      final String facultyId, final FacultyGroupsFilter facultyGroupsFilter) {
+  public Maybe<FacultyStudyGroups> getFacultyStudyGroups(
+      final String uniId, final String facultyId, final FacultyGroupsFilter facultyGroupsFilter) {
     facultyGroupsFilter.setUniId(uniId);
     facultyGroupsFilter.setFacultyId(facultyId);
     return getFacultyStudyGroups(facultyGroupsFilter);
@@ -50,7 +51,8 @@ public class ScheduleService {
   private Maybe<FacultyStudyGroups> getFacultyStudyGroups(
       final FacultyGroupsFilter facultyGroupsFilter) {
     return asDekanatRozkladApi
-        .getStudyGroups(facultyGroupsFilter.getUniId(),
+        .getStudyGroups(
+            facultyGroupsFilter.getUniId(),
             StringUtils.escapeIfNeeded(facultyGroupsFilter.getFacultyId()),
             StringUtils.valueOrNullLiteral(facultyGroupsFilter.getEducationForm()),
             StringUtils.valueOrNullLiteral(facultyGroupsFilter.getCourseId()),

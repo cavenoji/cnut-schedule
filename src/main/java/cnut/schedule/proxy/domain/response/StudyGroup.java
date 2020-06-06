@@ -5,14 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "Key",
-    "Value"
-})
+@JsonPropertyOrder({"Key", "Value"})
 public class StudyGroup {
 
   @JsonProperty("Key")
   private String key;
+
   @JsonProperty("Value")
   private String value;
 

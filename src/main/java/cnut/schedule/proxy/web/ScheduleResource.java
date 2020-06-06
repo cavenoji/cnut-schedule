@@ -67,9 +67,13 @@ public class ScheduleResource {
       @NotEmpty @PathVariable("uniId") final String uniId,
       @NotEmpty @PathVariable("facultyId") final String facultyId,
       @NotNull final FacultyGroupsFilter facultyGroupsFilter) {
-    LOG.info("Get faculty study groups, uniId: [{}], facultyId: [{}], filter: [{}]", uniId,
-        facultyId, facultyGroupsFilter);
-    return scheduleService.getFacultyStudyGroups(uniId, facultyId, facultyGroupsFilter)
+    LOG.info(
+        "Get faculty study groups, uniId: [{}], facultyId: [{}], filter: [{}]",
+        uniId,
+        facultyId,
+        facultyGroupsFilter);
+    return scheduleService
+        .getFacultyStudyGroups(uniId, facultyId, facultyGroupsFilter)
         .doOnError(Throwable::printStackTrace);
   }
 }

@@ -5,9 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "d"
-})
+@JsonPropertyOrder({"d"})
 public class ScheduleApiResponse<T extends BaseResponse> {
 
   @JsonProperty("d")
@@ -25,8 +23,6 @@ public class ScheduleApiResponse<T extends BaseResponse> {
 
   @Override
   public String toString() {
-    return "ScheduleApiResponse{" +
-        "d=" + d +
-        '}';
+    return "ScheduleApiResponse{" + "d=" + d + '}';
   }
 }

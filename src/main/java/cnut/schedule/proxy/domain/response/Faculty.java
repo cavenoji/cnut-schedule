@@ -5,14 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "Key",
-    "Value"
-})
+@JsonPropertyOrder({"Key", "Value"})
 public class Faculty {
 
   @JsonProperty("Key")
   private String key;
+
   @JsonProperty("Value")
   private String value;
 
@@ -38,9 +36,6 @@ public class Faculty {
 
   @Override
   public String toString() {
-    return "Faculty{" +
-        "key='" + key + '\'' +
-        ", value='" + value + '\'' +
-        '}';
+    return "Faculty{" + "key='" + key + '\'' + ", value='" + value + '\'' + '}';
   }
 }

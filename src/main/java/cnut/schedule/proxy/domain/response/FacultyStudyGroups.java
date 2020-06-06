@@ -7,6 +7,7 @@ public class FacultyStudyGroups extends BaseResponse {
 
   @JsonProperty("studyGroups")
   private List<StudyGroup> studyGroups = null;
+
   @JsonProperty("studyTypes")
   private List<StudyType> studyTypes = null;
 

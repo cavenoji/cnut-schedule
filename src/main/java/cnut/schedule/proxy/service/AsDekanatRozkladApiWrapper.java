@@ -4,7 +4,6 @@ import cnut.schedule.proxy.domain.response.FacultyStudyGroups;
 import cnut.schedule.proxy.domain.response.ScheduleApiResponse;
 import cnut.schedule.proxy.domain.response.filter.FiltersData;
 import cnut.schedule.proxy.utils.StringUtils;
-import io.micronaut.http.client.annotation.Client;
 import io.reactivex.Maybe;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -28,19 +27,28 @@ public class AsDekanatRozkladApiWrapper implements AsDekanatRozkladApi {
   }
 
   @Override
-  public Maybe<ScheduleApiResponse<FacultyStudyGroups>> getStudyGroups(String uniId,
-      String facultyId, String educationForm, String courseId,
+  public Maybe<ScheduleApiResponse<FacultyStudyGroups>> getStudyGroups(
+      String uniId,
+      String facultyId,
+      String educationForm,
+      String courseId,
       boolean giveStudyTimes) {
-    return asDekanatRozkladApi
-        .getStudyGroups(uniId,
-            StringUtils.escapeIfNeeded(facultyId),
-            StringUtils.valueOrNullLiteral(educationForm),
-            StringUtils.valueOrNullLiteral(courseId), giveStudyTimes);
+    return asDekanatRozkladApi.getStudyGroups(
+        uniId,
+        StringUtils.escapeIfNeeded(facultyId),
+        StringUtils.valueOrNullLiteral(educationForm),
+        StringUtils.valueOrNullLiteral(courseId),
+        giveStudyTimes);
   }
 
   @Override
-  public Maybe<ScheduleApiResponse> getScheduleDataX(String uniId, String groupId,
-      String startDate, String endDate, String studyTypeId) {
-    return null;
+  public Maybe<ScheduleApiResponse> getScheduleDataX(
+      String uniId, String groupId, String startDate, String endDate, String studyTypeId) {
+    return asDekanatRozkladApi.getScheduleDataX(
+        uniId,
+        StringUtils.escapeIfNeeded(groupId),
+        StringUtils.valueOrNullLiteral(startDate),
+        StringUtils.valueOrNullLiteral(endDate),
+        StringUtils.escapeIfNeeded(studyTypeId));
   }
 }

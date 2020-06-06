@@ -11,6 +11,9 @@ public final class StringUtils {
   }
 
   public static String escapeIfNeeded(final String value) {
+    if (value == null || value.isEmpty()) {
+      return value;
+    }
     return value.startsWith("\"") && value.endsWith("\"") ? value : "\"" + value + "\"";
   }
 }

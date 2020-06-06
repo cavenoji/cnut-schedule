@@ -48,15 +48,23 @@ public class FacultyGroupsFilter {
     this.giveStudyTypes = giveStudyTypes;
   }
 
-
   @Override
   public String toString() {
-    return "FacultyGroupsFilter{" +
-        "uniId='" + uniId + '\'' +
-        ", facultyId='" + facultyId + '\'' +
-        ", educationForm='" + educationForm + '\'' +
-        ", courseId='" + courseId + '\'' +
-        ", giveStudyTypes=" + giveStudyTypes +
-        '}';
+    return "FacultyGroupsFilter{"
+        + "uniId='"
+        + uniId
+        + '\''
+        + ", facultyId='"
+        + facultyId
+        + '\''
+        + ", educationForm='"
+        + educationForm
+        + '\''
+        + ", courseId='"
+        + courseId
+        + '\''
+        + ", giveStudyTypes="
+        + giveStudyTypes
+        + '}';
   }
 }
