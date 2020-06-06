@@ -32,6 +32,9 @@ public interface ScheduleOperations {
       @NotEmpty String groupId,
       @NotNull GroupClassesFilter groupClassesFilter);
 
-  Maybe<GeneralResponse<List<ScheduleDataRow>>> getStudyGroupClasses(@NotEmpty String uniId,
-      @NotEmpty String facultyName, String groupName, GroupClassesFilter groupClassesFilter);
+  Maybe<GeneralResponse<List<ScheduleDataRow>>> getStudyGroupClasses(
+      @NotEmpty String uniId,
+      @NotEmpty String facultyName,
+      String groupName,
+      GroupClassesFilter groupClassesFilter);
 }

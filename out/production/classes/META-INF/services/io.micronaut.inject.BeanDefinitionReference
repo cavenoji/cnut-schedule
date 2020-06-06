@@ -1,7 +1,0 @@
-cnut.schedule.proxy.web.error.$HttpClientExceptionHandlerDefinitionClass
-cnut.schedule.proxy.service.$AsDekanatRozkladApiWrapper$InterceptedDefinitionClass
-cnut.schedule.proxy.service.$AsDekanatRozkladApi$InterceptedDefinitionClass
-cnut.schedule.proxy.service.$ScheduleServiceDefinitionClass
-cnut.schedule.proxy.web.$HttpClientExceptionHandlerDefinitionClass
-cnut.schedule.proxy.web.$ScheduleResourceDefinitionClass
-cnut.schedule.proxy.web.$$ScheduleResourceDefinition$InterceptedDefinitionClass
