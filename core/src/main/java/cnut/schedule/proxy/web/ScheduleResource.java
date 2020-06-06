@@ -22,6 +22,7 @@ import io.micronaut.validation.Validated;
 import io.reactivex.Maybe;
 import java.util.List;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
@@ -29,8 +30,8 @@ import org.slf4j.LoggerFactory;
 
 @Validated
 @Controller("/api/schedule/{uniId}")
-@Secured(SecurityRule.IS_ANONYMOUS)
 @Produces(MediaType.APPLICATION_JSON)
+@Secured(SecurityRule.IS_AUTHENTICATED)
 public class ScheduleResource implements ScheduleOperations {
 
   private static final Logger LOG = LoggerFactory.getLogger(ScheduleResource.class);
@@ -92,10 +93,10 @@ public class ScheduleResource implements ScheduleOperations {
 
   @Override
   @Get("/study-groups/{groupId}/schedule-data{?groupClassesFilter*}")
-  public Maybe<GeneralResponse<List<ScheduleDataRow>>> getFacultyStudyGroups(
+  public Maybe<GeneralResponse<List<ScheduleDataRow>>> getStudyGroupClasses(
       @NotEmpty @PathVariable("uniId") final String uniId,
       @NotEmpty @PathVariable("groupId") final String groupId,
-      @NotNull final GroupClassesFilter groupClassesFilter) {
+      @Valid final GroupClassesFilter groupClassesFilter) {
     LOG.info(
         "Get study group schedule, uniId: [{}], groupId: [{}], filter: [{}]",
         uniId,
@@ -103,6 +104,24 @@ public class ScheduleResource implements ScheduleOperations {
         groupClassesFilter);
     return scheduleService
         .getGroupSchedule(uniId, groupId, groupClassesFilter)
+        .map(GeneralResponse::ok);
+  }
+
+  @Override
+  @Get("/faculties/{facultyName}/study-groups/{groupName}/schedule-data{?groupClassesFilter*}")
+  public Maybe<GeneralResponse<List<ScheduleDataRow>>> getStudyGroupClasses(
+      @NotEmpty @PathVariable("uniId") final String uniId,
+      @NotEmpty @PathVariable("facultyName") String facultyName,
+      @NotEmpty @PathVariable("groupName") String groupName,
+      @Valid GroupClassesFilter groupClassesFilter) {
+    LOG.info(
+        "Get study group schedule, uniId: [{}], facultyName: [{}], groupName: [{}], filter: [{}]",
+        uniId,
+        facultyName,
+        groupName,
+        groupClassesFilter);
+    return scheduleService
+        .getGroupSchedule(uniId, facultyName, groupName, groupClassesFilter)
         .map(GeneralResponse::ok);
   }
 }

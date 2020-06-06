@@ -10,18 +10,26 @@ import cnut.schedule.proxy.api.dto.response.Faculty;
 import cnut.schedule.proxy.api.dto.response.FacultyStudyGroups;
 import cnut.schedule.proxy.api.dto.response.ScheduleApiResponse;
 import cnut.schedule.proxy.api.dto.response.ScheduleDataRow;
+import cnut.schedule.proxy.api.dto.response.StudyGroup;
 import cnut.schedule.proxy.api.dto.response.filter.FiltersData;
 import cnut.schedule.proxy.integration.AsDekanatRozkladApi;
 import cnut.schedule.proxy.integration.AsDekanatRozkladApiWrapper;
 import io.reactivex.Maybe;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
 @Singleton
 public class ScheduleService {
+
+  private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+  private static final String DEFAULT_START_DATE = DATE_FORMAT.format(LocalDate.now().minusYears(1L));
+  private static final String DEFAULT_END_DATE = DATE_FORMAT.format(LocalDate.now().plusYears(1L));
 
   private final AsDekanatRozkladApi asDekanatRozkladApi;
 
@@ -66,14 +74,49 @@ public class ScheduleService {
     return getGroupSchedule(classesFilter);
   }
 
+  public Maybe<List<ScheduleDataRow>> getGroupSchedule(
+      final String uniId,
+      final String facultyName,
+      final String groupName,
+      final GroupClassesFilter classesFilter) {
+    return getFaculties(uniId)
+        .flatMap(
+            faculties ->
+                faculties
+                    .stream()
+                    .filter(faculty -> facultyName.equals(faculty.getValue()))
+                    .findFirst()
+                    .map(Maybe::just)
+                    .orElseGet(Maybe::empty))
+        .flatMap(faculty -> getStudyGroup(uniId, groupName, faculty))
+        .flatMap(studyGroup -> getGroupSchedule(uniId, studyGroup.getKey(), classesFilter));
+  }
+
+  private Maybe<? extends StudyGroup> getStudyGroup(
+      final String uniId, final String groupName, Faculty faculty) {
+    final Maybe<List<StudyGroup>> studyGroups =
+        getFacultyStudyGroups(uniId, faculty.getKey(), new FacultyGroupsFilter())
+            .map(rxMapOrDefault(FacultyStudyGroups::getStudyGroups, Collections::emptyList));
+    return studyGroups.flatMap(
+        groups -> {
+          final Optional<StudyGroup> first =
+              groups.stream().filter(group -> groupName.equals(group.getValue())).findFirst();
+          return first.map(Maybe::just).orElseGet(Maybe::empty);
+        });
+  }
+
   private Maybe<List<ScheduleDataRow>> getGroupSchedule(
       final GroupClassesFilter groupClassesFilter) {
     return asDekanatRozkladApi
         .getScheduleDataX(
             groupClassesFilter.getUniId(),
             groupClassesFilter.getGroupId(),
-            groupClassesFilter.getStartDate(),
-            groupClassesFilter.getEndDate(),
+            groupClassesFilter.getStartDate() != null
+                ? groupClassesFilter.getStartDate()
+                : DEFAULT_START_DATE,
+            groupClassesFilter.getEndDate() != null
+                ? groupClassesFilter.getEndDate()
+                : DEFAULT_END_DATE,
             groupClassesFilter.getStudyTypeId())
         .map(rxMapOrDefault(ScheduleApiResponse::getD, Collections::emptyList));
   }

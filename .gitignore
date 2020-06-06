@@ -7,7 +7,9 @@ target/
 *.iml
 *.ipr
 *.iws
+**/build/
 out/
+**/out/
 .project
 .settings
 .classpath

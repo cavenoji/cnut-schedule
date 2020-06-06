@@ -1,12 +1,11 @@
 package cnut.schedule.proxy.api.dto.filter;
 
 import cnut.schedule.proxy.api.validation.DateFormat;
-import javax.validation.constraints.NotEmpty;
 
 public class GroupClassesFilter {
 
-  @NotEmpty private String uniId;
-  @NotEmpty private String groupId;
+  private String uniId;
+  private String groupId;
 
   @DateFormat("dd.MM.yyyy")
   private String startDate;

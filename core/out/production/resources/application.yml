@@ -11,6 +11,9 @@ cnut-schedule-proxy:
 
 ---
 micronaut:
+  http:
+    client:
+      read-timeout: 25s
   router:
     static-resources:
       swagger:
@@ -24,12 +27,21 @@ micronaut:
     endpoints:
       login:
         enabled: true
-      oauth:
-        enabled: true
     token:
       jwt:
         enabled: true
         signatures:
           secret:
             generator:
-              secret: "${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}"
+              secret: 0c22c1c1-76d0-4c60-9a0d-d9d05505e75f
+      writer:
+        header:
+          enabled: true
+          headerName: "Authorization"
+          prefix: "Bearer "
+
+credentials:
+  users:
+    test: test123
+  roles:
+    test: ADMIN

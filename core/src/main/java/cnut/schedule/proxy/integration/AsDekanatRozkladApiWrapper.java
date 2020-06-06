@@ -49,8 +49,8 @@ public class AsDekanatRozkladApiWrapper implements AsDekanatRozkladApi {
     return asDekanatRozkladApi.getScheduleDataX(
         uniId,
         StringUtils.escapeIfNeeded(groupId),
-        StringUtils.valueOrNullLiteral(startDate),
-        StringUtils.valueOrNullLiteral(endDate),
+        StringUtils.valueOrNullLiteral(StringUtils.escapeIfNeeded(startDate)),
+        StringUtils.valueOrNullLiteral(StringUtils.escapeIfNeeded(endDate)),
         StringUtils.valueOrNullLiteral(StringUtils.escapeIfNeeded(studyTypeId)));
   }
 }

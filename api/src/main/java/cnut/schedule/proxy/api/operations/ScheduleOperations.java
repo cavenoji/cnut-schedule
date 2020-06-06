@@ -27,8 +27,11 @@ public interface ScheduleOperations {
   Maybe<GeneralResponse<FacultyStudyGroups>> getFacultyStudyGroups(
       String uniId, String facultyId, @NotNull FacultyGroupsFilter facultyGroupsFilter);
 
-  Maybe<GeneralResponse<List<ScheduleDataRow>>> getFacultyStudyGroups(
+  Maybe<GeneralResponse<List<ScheduleDataRow>>> getStudyGroupClasses(
       @NotEmpty String uniId,
       @NotEmpty String groupId,
       @NotNull GroupClassesFilter groupClassesFilter);
+
+  Maybe<GeneralResponse<List<ScheduleDataRow>>> getStudyGroupClasses(@NotEmpty String uniId,
+      @NotEmpty String facultyName, String groupName, GroupClassesFilter groupClassesFilter);
 }

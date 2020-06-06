@@ -3,8 +3,7 @@ package cnut.schedule.proxy.validation;
 import cnut.schedule.proxy.api.validation.DateFormat;
 import io.micronaut.context.annotation.Factory;
 import io.micronaut.validation.validator.constraints.ConstraintValidator;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import javax.inject.Singleton;
@@ -12,7 +11,7 @@ import javax.inject.Singleton;
 @Factory
 public class DateFormatValidatorFactory {
 
-  private final Map<String, SimpleDateFormat> formatsCache = new HashMap<>();
+  private final Map<String, DateTimeFormatter> formatsCache = new HashMap<>();
 
   @Singleton
   public ConstraintValidator<DateFormat, CharSequence> dateFormatValidator() {
@@ -20,7 +19,7 @@ public class DateFormatValidatorFactory {
       if (value == null || value.length() == 0) {
         return true;
       }
-      final var pattern = annotationMetadata.stringValue("pattern");
+      final var pattern = annotationMetadata.stringValue("value");
       if (pattern.isEmpty()) {
         return true;
       }
@@ -31,18 +30,16 @@ public class DateFormatValidatorFactory {
     };
   }
 
-  private boolean validate(CharSequence value, SimpleDateFormat dateFormat) {
+  private boolean validate(CharSequence value, DateTimeFormatter dateFormat) {
     try {
       dateFormat.parse(value.toString());
       return true;
-    } catch (final ParseException e) {
+    } catch (final Exception e) {
       return false;
     }
   }
 
-  private static SimpleDateFormat createFormatter(final String patternValue) {
-    final var format = new SimpleDateFormat(patternValue);
-    format.setLenient(false);
-    return format;
+  private static DateTimeFormatter createFormatter(final String patternValue) {
+    return DateTimeFormatter.ofPattern(patternValue);
   }
 }
