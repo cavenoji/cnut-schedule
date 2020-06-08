@@ -1,13 +1,12 @@
 package cnut.schedule.proxy.api.dto.response.filter;
 
-import cnut.schedule.proxy.api.dto.response.BaseResponse;
 import cnut.schedule.proxy.api.dto.response.Course;
 import cnut.schedule.proxy.api.dto.response.EducForm;
 import cnut.schedule.proxy.api.dto.response.Faculty;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
-public class FiltersData extends BaseResponse {
+public class FiltersData  {
 
   @JsonProperty("faculties")
   private List<Faculty> faculties = null;
@@ -57,8 +56,6 @@ public class FiltersData extends BaseResponse {
         + educForms
         + ", courses="
         + courses
-        + ", type='"
-        + type
         + '\''
         + '}';
   }

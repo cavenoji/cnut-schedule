@@ -1,6 +1,6 @@
 package cnut.schedule.proxy.service;
 
-import static cnut.schedule.proxy.utils.FunctionalUtils.rxMapOrDefault;
+import static cnut.schedule.proxy.api.util.FunctionalUtils.rxMapOrDefault;
 
 import cnut.schedule.proxy.api.dto.filter.FacultyGroupsFilter;
 import cnut.schedule.proxy.api.dto.filter.GroupClassesFilter;

@@ -1,3 +1,5 @@
 rootProject.name="cnut-schedule-proxy"
 include 'core'
 include 'api'
+include 'tg-bot'
+

@@ -1,9 +1,13 @@
 package cnut.schedule.proxy.api.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.List;
 
-public class FacultyStudyGroups extends BaseResponse {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({"studyGroups", "studyTypes"})
+public class FacultyStudyGroups {
 
   @JsonProperty("studyGroups")
   private List<StudyGroup> studyGroups = null;

@@ -1,4 +1,4 @@
-package cnut.schedule.proxy.utils;
+package cnut.schedule.proxy.api.util;
 
 import java.util.function.Function;
 import java.util.function.Supplier;

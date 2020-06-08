@@ -30,3 +30,9 @@ project(':core') {
         compile project(':api')
     }
 }
+
+project(':tg-bot') {
+    dependencies {
+        compile project(':api')
+    }
+}

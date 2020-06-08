@@ -1,0 +1,21 @@
+---
+micronaut:
+  application:
+    name: cnut-schedule-tg-bot
+
+---
+micronaut:
+  http:
+    client:
+      read-timeout: 25s
+---
+schedule-api:
+  uniId: 11761
+  credentials:
+    username: test
+    password: test123
+  base-url: http://localhost:8080
+schedule:
+  bot:
+    botUsername: XXXXX #your bot username
+    botToken: XXXXXX #your bot token
