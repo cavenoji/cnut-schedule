@@ -18,7 +18,7 @@ public abstract class AbstractBotCommand extends BotCommand {
    * Construct a command
    *
    * @param commandIdentifier the unique identifier of this command (e.g. the command string to
-   * enter into chat)
+   *     enter into chat)
    * @param description the description of this command
    */
   public AbstractBotCommand(final String commandIdentifier, final String description) {
@@ -46,6 +46,6 @@ public abstract class AbstractBotCommand extends BotCommand {
 
   @Override
   public void execute(AbsSender absSender, User user, Chat chat, String[] arguments) {
-    //NOOP
+    // NOOP
   }
 }

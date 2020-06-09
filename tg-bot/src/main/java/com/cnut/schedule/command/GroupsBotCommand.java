@@ -1,6 +1,5 @@
 package com.cnut.schedule.command;
 
-import cnut.schedule.proxy.api.dto.response.Faculty;
 import cnut.schedule.proxy.api.dto.response.StudyGroup;
 import com.cnut.schedule.service.ScheduleService;
 import java.util.List;
@@ -42,11 +41,18 @@ public class GroupsBotCommand extends AbstractBotCommand {
     }
     final String facultyId = arguments[0];
     if (facultyId == null || facultyId.isEmpty()) {
-      LOG.debug("FacultyId argument is empty for command: [{}], user: [{}], chat: [{}]",
-          getCommandIdentifier(), user.getId(), chat.getId());
-      execute(absSender,
-          new SendMessage().setChatId(chat.getId()).setReplyToMessageId(message.getMessageId())
-              .setText("Please, retry with faculty id argument"), user);
+      LOG.debug(
+          "FacultyId argument is empty for command: [{}], user: [{}], chat: [{}]",
+          getCommandIdentifier(),
+          user.getId(),
+          chat.getId());
+      execute(
+          absSender,
+          new SendMessage()
+              .setChatId(chat.getId())
+              .setReplyToMessageId(message.getMessageId())
+              .setText("Please, retry with faculty id argument"),
+          user);
     }
     scheduleService
         .getStudyGroups(facultyId)
@@ -69,8 +75,8 @@ public class GroupsBotCommand extends AbstractBotCommand {
     final String header = "HEADER" + System.lineSeparator();
     return header
         + groups
-        .stream()
-        .map(group -> String.format(GROUP_ROW_FORMAT, group.getValue(), group.getKey()))
-        .collect(Collectors.joining(System.lineSeparator()));
+            .stream()
+            .map(group -> String.format(GROUP_ROW_FORMAT, group.getValue(), group.getKey()))
+            .collect(Collectors.joining(System.lineSeparator()));
   }
 }

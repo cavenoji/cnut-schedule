@@ -1,15 +1,9 @@
 package com.cnut.schedule.configuration;
 
-import io.micronaut.context.annotation.Bean;
-import io.micronaut.context.annotation.Factory;
-import io.micronaut.context.event.ApplicationEvent;
 import io.micronaut.context.event.ApplicationEventListener;
 import io.micronaut.context.event.StartupEvent;
-import io.micronaut.discovery.event.ServiceStartedEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -39,7 +33,7 @@ public class TelegramBotsConfiguration implements ApplicationEventListener<Start
     this.pollingBots = pollingBots;
   }
 
-//  @PostConstruct
+  //  @PostConstruct
   public void start() {
     LOG.info("Starting auto config for telegram bots");
     final TelegramBotsApi api = new TelegramBotsApi();

@@ -1,7 +1,6 @@
 package com.cnut.schedule.command;
 
 import cnut.schedule.proxy.api.dto.response.ScheduleDataRow;
-import cnut.schedule.proxy.api.dto.response.StudyGroup;
 import com.cnut.schedule.service.ScheduleService;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +15,7 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 @Singleton
 public class ScheduleBotCommand extends AbstractBotCommand {
 
-  //DATE(DAY_OF_WEEK)/STUDY_TIME/SUBJECT NAME/TYPE OF CLASS/ROOM NUMBER/TEACHER_NAME
+  // DATE(DAY_OF_WEEK)/STUDY_TIME/SUBJECT NAME/TYPE OF CLASS/ROOM NUMBER/TEACHER_NAME
   private static final String FORMAT = "%s(%s) | %s | %s | %s | %s | %s";
 
   private final ScheduleService scheduleService;
@@ -27,10 +26,10 @@ public class ScheduleBotCommand extends AbstractBotCommand {
     this.scheduleService = scheduleService;
   }
 
-  //TODO change logic of parsing arguments
+  // TODO change logic of parsing arguments
   @Override
-  public void processMessage(final AbsSender absSender, final Message message,
-      final String[] arguments) {
+  public void processMessage(
+      final AbsSender absSender, final Message message, final String[] arguments) {
     final Chat chat = message.getChat();
     final User user = message.getFrom();
     if (!chat.isUserChat()) {
@@ -54,25 +53,36 @@ public class ScheduleBotCommand extends AbstractBotCommand {
       startDate = arguments[2];
       endDate = arguments[3];
     }
-    scheduleService.getGroupSchedule(facultyName, groupName, startDate, endDate).subscribe(s -> {
-      execute(
-          absSender,
-          new SendMessage()
-              .setChatId(chat.getId())
-              .setReplyToMessageId(message.getMessageId())
-              .setText(formatMessage(s)),
-          user);
-    });
+    scheduleService
+        .getGroupSchedule(facultyName, groupName, startDate, endDate)
+        .subscribe(
+            s -> {
+              execute(
+                  absSender,
+                  new SendMessage()
+                      .setChatId(chat.getId())
+                      .setReplyToMessageId(message.getMessageId())
+                      .setText(formatMessage(s)),
+                  user);
+            });
   }
 
   private String formatMessage(final List<ScheduleDataRow> scheduleDataRows) {
-    return scheduleDataRows.stream().map(this::getFormattedRecord)
+    return scheduleDataRows
+        .stream()
+        .map(this::getFormattedRecord)
         .collect(Collectors.joining(System.lineSeparator()));
   }
 
   private String getFormattedRecord(final ScheduleDataRow s) {
-    return String
-        .format(FORMAT, s.getFullDate(), s.getWeekDay(), s.getStudyTime(), s.getDiscipline(),
-            s.getStudyType(), s.getCabinet(), s.getEmployee());
+    return String.format(
+        FORMAT,
+        s.getFullDate(),
+        s.getWeekDay(),
+        s.getStudyTime(),
+        s.getDiscipline(),
+        s.getStudyType(),
+        s.getCabinet(),
+        s.getEmployee());
   }
 }

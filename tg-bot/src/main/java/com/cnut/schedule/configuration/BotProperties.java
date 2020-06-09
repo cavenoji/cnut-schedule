@@ -2,17 +2,13 @@ package com.cnut.schedule.configuration;
 
 import io.micronaut.context.annotation.ConfigurationProperties;
 
-@ConfigurationProperties(value = "schedule.bot"
-    , cliPrefix = "schedule.bot"
-)
+@ConfigurationProperties(value = "schedule.bot", cliPrefix = "schedule.bot")
 public class BotProperties {
 
   private String botUsername;
   private String botToken;
 
-  public BotProperties() {
-
-  }
+  public BotProperties() {}
 
   public String getBotUsername() {
     return botUsername;
@@ -32,9 +28,13 @@ public class BotProperties {
 
   @Override
   public String toString() {
-    return "BotProperties{" +
-        "botUsername='" + botUsername + '\'' +
-        ", botToken='" + botToken + '\'' +
-        '}';
+    return "BotProperties{"
+        + "botUsername='"
+        + botUsername
+        + '\''
+        + ", botToken='"
+        + botToken
+        + '\''
+        + '}';
   }
 }

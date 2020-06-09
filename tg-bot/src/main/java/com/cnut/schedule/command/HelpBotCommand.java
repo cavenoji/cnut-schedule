@@ -5,7 +5,6 @@ import io.micronaut.context.MessageSource;
 import io.micronaut.context.MessageSource.MessageContext;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.inject.Inject;
@@ -19,9 +18,9 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 @Singleton
 public class HelpBotCommand extends AbstractBotCommand {
 
-  //TODO move in configuration
-  public static final List<String> AVAILABLE_COMMANDS = Arrays
-      .asList("/help", "/faculties", "/groups", "/schedule");
+  // TODO move in configuration
+  public static final List<String> AVAILABLE_COMMANDS =
+      Arrays.asList("/help", "/faculties", "/groups", "/schedule");
 
   private final String commandDescription;
 
@@ -31,8 +30,7 @@ public class HelpBotCommand extends AbstractBotCommand {
     this.commandDescription = getCommandDescription(messageSource);
   }
 
-  private static String getCommandDescription(
-      final MessageSource messageSource) {
+  private static String getCommandDescription(final MessageSource messageSource) {
     final Optional<String> headerMessageOpt = getMessage(messageSource, "Help.message.header");
     if (headerMessageOpt.isEmpty()) {
       throw new RuntimeException("No header for help command description");

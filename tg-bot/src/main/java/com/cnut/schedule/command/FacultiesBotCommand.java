@@ -23,8 +23,7 @@ public class FacultiesBotCommand extends AbstractBotCommand {
   private final MessageSource messageSource;
 
   @Inject
-  public FacultiesBotCommand(final ScheduleService scheduleService,
-      MessageSource messageSource) {
+  public FacultiesBotCommand(final ScheduleService scheduleService, MessageSource messageSource) {
     super("faculties", "faculties list");
     this.scheduleService = scheduleService;
     this.messageSource = messageSource;
@@ -59,12 +58,13 @@ public class FacultiesBotCommand extends AbstractBotCommand {
   }
 
   private String formatMessage(final List<Faculty> faculties) {
-    final String header = messageSource.getMessage("Faculties.list.header", MessageContext.DEFAULT)
-        .orElseThrow() + System.lineSeparator();
+    final String header =
+        messageSource.getMessage("Faculties.list.header", MessageContext.DEFAULT).orElseThrow()
+            + System.lineSeparator();
     return header
         + faculties
-        .stream()
-        .map(faculty -> String.format(FACULTY_ROW_FORMAT, faculty.getValue(), faculty.getKey()))
-        .collect(Collectors.joining(System.lineSeparator()));
+            .stream()
+            .map(faculty -> String.format(FACULTY_ROW_FORMAT, faculty.getValue(), faculty.getKey()))
+            .collect(Collectors.joining(System.lineSeparator()));
   }
 }

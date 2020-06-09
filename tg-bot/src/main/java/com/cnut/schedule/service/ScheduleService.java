@@ -33,12 +33,17 @@ public class ScheduleService {
   private final LoginApi loginApi;
 
   @Inject
-  public ScheduleService(final LoginApiProperties loginApiProperties,
+  public ScheduleService(
+      final LoginApiProperties loginApiProperties,
       final ScheduleApiProperties scheduleApiProperties,
       final ScheduleApi scheduleApi,
       final LoginApi loginApi) {
-    this.usernamePassword = Map.of("username", loginApiProperties.getUsername(), "password",
-        loginApiProperties.getPassword());
+    this.usernamePassword =
+        Map.of(
+            "username",
+            loginApiProperties.getUsername(),
+            "password",
+            loginApiProperties.getPassword());
     System.out.println(usernamePassword);
     this.uniId = scheduleApiProperties.getUniId();
     this.scheduleApi = scheduleApi;
@@ -59,17 +64,23 @@ public class ScheduleService {
   public Maybe<List<StudyGroup>> getStudyGroups(final String facultyId) {
     return scheduleApi
         .getFacultyStudyGroups(getRefreshedToken(), uniId, facultyId, new FacultyGroupsFilter())
-        .map(r -> {
-          final FacultyStudyGroups body = r.getBody();
-          if (body == null) {
-            return Collections.emptyList();
-          }
-          return body.getStudyGroups() == null ? Collections.emptyList() : body.getStudyGroups();
-        });
+        .map(
+            r -> {
+              final FacultyStudyGroups body = r.getBody();
+              if (body == null) {
+                return Collections.emptyList();
+              }
+              return body.getStudyGroups() == null
+                  ? Collections.emptyList()
+                  : body.getStudyGroups();
+            });
   }
 
-  public Maybe<List<ScheduleDataRow>> getGroupSchedule(final String facultyName,
-      final String groupName, final String startDate, final String endDate) {
+  public Maybe<List<ScheduleDataRow>> getGroupSchedule(
+      final String facultyName,
+      final String groupName,
+      final String startDate,
+      final String endDate) {
     final GroupClassesFilter filter = new GroupClassesFilter();
     filter.setStartDate(startDate);
     filter.setEndDate(endDate);
@@ -87,10 +98,14 @@ public class ScheduleService {
 
   private void refreshToken() {
     long now = Instant.now().getEpochSecond();
-    loginApi.login(usernamePassword).subscribe(response -> {
-      token = "Bearer " + response.get("access_token");
-      System.out.println(response);
-      nextTokenGenerationTimeInEpochSeconds = now + Long.parseLong(response.get("expires_in"));
-    });
+    loginApi
+        .login(usernamePassword)
+        .subscribe(
+            response -> {
+              token = "Bearer " + response.get("access_token");
+              System.out.println(response);
+              nextTokenGenerationTimeInEpochSeconds =
+                  now + Long.parseLong(response.get("expires_in"));
+            });
   }
 }
