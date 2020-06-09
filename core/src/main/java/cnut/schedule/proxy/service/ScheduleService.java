@@ -114,10 +114,10 @@ public class ScheduleService {
             groupClassesFilter.getGroupId(),
             groupClassesFilter.getStartDate() != null
                 ? groupClassesFilter.getStartDate()
-                : DEFAULT_START_DATE,
+                : getDefaultStartDate(),
             groupClassesFilter.getEndDate() != null
                 ? groupClassesFilter.getEndDate()
-                : DEFAULT_END_DATE,
+                : getDefaultEndDate(),
             groupClassesFilter.getStudyTypeId())
         .map(rxMapOrDefault(ScheduleApiResponse::getD, Collections::emptyList));
   }
@@ -132,5 +132,13 @@ public class ScheduleService {
             facultyGroupsFilter.getCourseId(),
             facultyGroupsFilter.isGiveStudyTypes())
         .map(rxMapOrDefault(ScheduleApiResponse::getD, FacultyStudyGroups::new));
+  }
+
+  private String getDefaultStartDate() {
+    return DATE_FORMAT.format(LocalDate.now().minusYears(1L));
+  }
+
+  private String getDefaultEndDate() {
+    return DATE_FORMAT.format(LocalDate.now().plusYears(1L));
   }
 }
