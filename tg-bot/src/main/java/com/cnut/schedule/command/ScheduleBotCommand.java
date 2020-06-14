@@ -1,11 +1,15 @@
 package com.cnut.schedule.command;
 
 import cnut.schedule.proxy.api.dto.response.ScheduleDataRow;
+import com.cnut.schedule.domain.DayOfWeekToStringMapper;
 import com.cnut.schedule.service.ScheduleService;
+import io.reactivex.disposables.Disposable;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -15,15 +19,19 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 @Singleton
 public class ScheduleBotCommand extends AbstractBotCommand {
 
+  private static final String COMMAND_ID = "schedule";
+
   // DATE(DAY_OF_WEEK)/STUDY_TIME/SUBJECT NAME/TYPE OF CLASS/ROOM NUMBER/TEACHER_NAME
   private static final String FORMAT = "%s(%s) | %s | %s | %s | %s | %s";
 
   private final ScheduleService scheduleService;
+  private final DayOfWeekToStringMapper dayOfWeekToStringMapper;
 
   @Inject
-  public ScheduleBotCommand(final ScheduleService scheduleService) {
-    super("schedule", null);
+  public ScheduleBotCommand(final ScheduleService scheduleService, final DayOfWeekToStringMapper dayOfWeekToStringMapper) {
+    super(COMMAND_ID, null);
     this.scheduleService = scheduleService;
+    this.dayOfWeekToStringMapper = dayOfWeekToStringMapper;
   }
 
   // TODO change logic of parsing arguments
@@ -53,18 +61,19 @@ public class ScheduleBotCommand extends AbstractBotCommand {
       startDate = arguments[2];
       endDate = arguments[3];
     }
-    scheduleService
-        .getGroupSchedule(facultyName, groupName, startDate, endDate)
-        .subscribe(
-            s -> {
-              execute(
-                  absSender,
-                  new SendMessage()
-                      .setChatId(chat.getId())
-                      .setReplyToMessageId(message.getMessageId())
-                      .setText(formatMessage(s)),
-                  user);
-            });
+    Disposable disposable =
+        scheduleService
+            .getGroupSchedule(facultyName, groupName, startDate, endDate)
+            .subscribe(
+                s ->
+                    execute(
+                        absSender,
+                        new SendMessage()
+                            .setChatId(chat.getId())
+                            .setReplyToMessageId(message.getMessageId())
+                            .setText(formatMessage(s)),
+                        user));
+    dispose(disposable);
   }
 
   private String formatMessage(final List<ScheduleDataRow> scheduleDataRows) {
@@ -78,7 +87,7 @@ public class ScheduleBotCommand extends AbstractBotCommand {
     return String.format(
         FORMAT,
         s.getFullDate(),
-        s.getWeekDay(),
+        dayOfWeekToStringMapper.map(s.getWeekDay()),
         s.getStudyTime(),
         s.getDiscipline(),
         s.getStudyType(),

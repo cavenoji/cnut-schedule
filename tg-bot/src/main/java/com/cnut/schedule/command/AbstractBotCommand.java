@@ -1,5 +1,6 @@
 package com.cnut.schedule.command;
 
+import io.reactivex.disposables.Disposable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.BotCommand;
@@ -47,5 +48,9 @@ public abstract class AbstractBotCommand extends BotCommand {
   @Override
   public void execute(AbsSender absSender, User user, Chat chat, String[] arguments) {
     // NOOP
+  }
+
+  protected void dispose(final Disposable disposable) {
+    disposable.dispose();
   }
 }

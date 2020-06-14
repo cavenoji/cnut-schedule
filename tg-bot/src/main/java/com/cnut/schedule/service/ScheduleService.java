@@ -44,7 +44,6 @@ public class ScheduleService {
             loginApiProperties.getUsername(),
             "password",
             loginApiProperties.getPassword());
-    System.out.println(usernamePassword);
     this.uniId = scheduleApiProperties.getUniId();
     this.scheduleApi = scheduleApi;
     this.loginApi = loginApi;

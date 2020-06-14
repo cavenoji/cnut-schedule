@@ -15,13 +15,15 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 @Singleton
 public class GroupsBotCommand extends AbstractBotCommand {
 
+  private static final String COMMAND_ID = "groups";
+
   private static final String GROUP_ROW_FORMAT = "%s - (%s)";
 
   private final ScheduleService scheduleService;
 
   @Inject
   public GroupsBotCommand(final ScheduleService scheduleService) {
-    super("groups", null);
+    super(COMMAND_ID, null);
     this.scheduleService = scheduleService;
   }
 

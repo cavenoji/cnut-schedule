@@ -1,8 +1,12 @@
 package cnut.schedule.proxy.api.dto.response;
 
+import cnut.schedule.proxy.api.jackson.DayOfWeekDeserializer;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import java.time.DayOfWeek;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -29,7 +33,8 @@ public class ScheduleDataRow {
   private String studyTimeEnd;
 
   @JsonProperty("week_day")
-  private String weekDay;
+  @JsonDeserialize(using = DayOfWeekDeserializer.class)
+  private DayOfWeek weekDay;
 
   @JsonProperty("full_date")
   private String fullDate;
@@ -80,12 +85,12 @@ public class ScheduleDataRow {
   }
 
   @JsonProperty("week_day")
-  public String getWeekDay() {
+  public DayOfWeek getWeekDay() {
     return weekDay;
   }
 
   @JsonProperty("week_day")
-  public void setWeekDay(String weekDay) {
+  public void setWeekDay(DayOfWeek weekDay) {
     this.weekDay = weekDay;
   }
 

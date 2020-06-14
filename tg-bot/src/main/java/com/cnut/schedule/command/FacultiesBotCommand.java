@@ -17,6 +17,7 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 @Singleton
 public class FacultiesBotCommand extends AbstractBotCommand {
 
+  private static final String COMMAND_ID = "faculties";
   private static final String FACULTY_ROW_FORMAT = "%s - (%s)";
 
   private final ScheduleService scheduleService;
@@ -24,7 +25,7 @@ public class FacultiesBotCommand extends AbstractBotCommand {
 
   @Inject
   public FacultiesBotCommand(final ScheduleService scheduleService, MessageSource messageSource) {
-    super("faculties", "faculties list");
+    super(COMMAND_ID, "faculties list");
     this.scheduleService = scheduleService;
     this.messageSource = messageSource;
   }

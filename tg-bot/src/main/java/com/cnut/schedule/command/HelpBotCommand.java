@@ -18,6 +18,8 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 @Singleton
 public class HelpBotCommand extends AbstractBotCommand {
 
+  private static final String COMMAND_ID = "help";
+
   // TODO move in configuration
   public static final List<String> AVAILABLE_COMMANDS =
       Arrays.asList("/help", "/faculties", "/groups", "/schedule");
@@ -26,7 +28,7 @@ public class HelpBotCommand extends AbstractBotCommand {
 
   @Inject
   public HelpBotCommand(final MessageSource messageSource) {
-    super("help", getCommandDescription(messageSource));
+    super(COMMAND_ID, getCommandDescription(messageSource));
     this.commandDescription = getCommandDescription(messageSource);
   }
 
